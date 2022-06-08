@@ -7,15 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{38182E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{7C9E8A43-1933-4AAD-9C8A-5BEBF45FD715}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebApp", "BlazorWebApp\BlazorWebApp.csproj", "{CD3736C5-10FB-4E63-A7EC-A8735A909FA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebApp", "BlazorWebApp\BlazorWebApp.csproj", "{CD3736C5-10FB-4E63-A7EC-A8735A909FA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Infrastructure", "Client.Infrastructure\Client.Infrastructure.csproj", "{D5373DB1-2AC6-4BB8-82EB-0E3D48BB2FA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.Infrastructure", "Client.Infrastructure\Client.Infrastructure.csproj", "{D5373DB1-2AC6-4BB8-82EB-0E3D48BB2FA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8CE24029-0E41-4FEC-A9A7-D07F74FE5D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{8CE24029-0E41-4FEC-A9A7-D07F74FE5D1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{27546FAB-0152-4192-9487-3AA73095C31E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{27546FAB-0152-4192-9487-3AA73095C31E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{53E33D05-F979-4232-AEB7-61406E8F4CF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{53E33D05-F979-4232-AEB7-61406E8F4CF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
