@@ -2,6 +2,7 @@
 using Core.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.DTO;
 
 namespace WebAPI.Controllers
 {
@@ -16,16 +17,16 @@ namespace WebAPI.Controllers
             _userManager = manager;
         }
         
-        [HttpPost]
-        public async Task<IActionResult> Create(string userName, string email, string password)
+        [HttpPost("/register")]
+        public async Task<UserDTO> Create(string userName, string email, string password)
         {
-            await _userManager.CreateAsync(new User
+            var user = await _userManager.CreateAsync(new User
             {
                 UserName = userName,
                 Email = email,
                 StatusId = 1
             }, password);
-            return Ok();
+            return new UserDTO{UserName = userName, Email = email};
         }
     }
 }
