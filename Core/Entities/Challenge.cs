@@ -16,7 +16,7 @@ namespace Core.Entities
         public Frequency Frequency { get; set; }
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
-        public bool IsRegistrationOpened { get; set; }
+        public bool? IsRegistrationOpened { get; set; }
         public bool IsCompleted { get; set; }
         
         public ICollection<DailyTask> DailyTasks { get; set; }

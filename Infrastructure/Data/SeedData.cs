@@ -11,8 +11,6 @@ namespace Infrastructure.Data
     {
         private static readonly PasswordHasher<User> PasswordHasher = new();
 
-        private static readonly Faker Faker = new();
-
         public static void Seed(this ModelBuilder builder)
         {
             SeedStatus(builder);
@@ -28,7 +26,7 @@ namespace Infrastructure.Data
         private static void SeedStatus(ModelBuilder builder)
         {
             builder.Entity<Status>()
-                .HasData(new Status{ Name = "Beginner"});
+                .HasData(new Status{Id = 1, Name = "Beginner"});
         }
 
         #endregion
@@ -44,46 +42,46 @@ namespace Infrastructure.Data
 
         private static void SeedUser(ModelBuilder builder)
         {
-            var emails = new List<string>();
+            var persons = new List<Person>();
             for (var i = 0; i < 4; i++)
             {
-                emails.Add(Faker.Person.Email);
+                persons.Add(new Person());
             }
             
             var user0 = new User
             {
                 Id = User0Id,
-                UserName = Faker.Person.UserName,
-                NormalizedEmail = emails[0].ToUpper(),
-                NormalizedUserName = emails[0].ToUpper(),
-                Email = emails[0],
+                UserName = persons[0].UserName,
+                NormalizedEmail = persons[0].Email.ToUpper(),
+                NormalizedUserName = persons[0].UserName.ToUpper(),
+                Email = persons[0].Email,
                 StatusId = 1
             };
             var user1 = new User
             {
                 Id = User1Id,
-                UserName = Faker.Person.UserName,
-                NormalizedEmail = emails[1].ToUpper(),
-                NormalizedUserName = emails[1].ToUpper(),
-                Email = emails[1],
+                UserName = persons[1].UserName,
+                NormalizedEmail = persons[1].Email.ToUpper(),
+                NormalizedUserName = persons[1].UserName.ToUpper(),
+                Email = persons[1].Email,
                 StatusId = 1
             };
             var user2 = new User
             {
                 Id = User2Id,
-                UserName = Faker.Person.UserName,
-                NormalizedEmail = emails[2].ToUpper(),
-                NormalizedUserName = emails[2].ToUpper(),
-                Email = emails[2],
+                UserName = persons[2].UserName,
+                NormalizedEmail = persons[2].Email.ToUpper(),
+                NormalizedUserName = persons[2].UserName.ToUpper(),
+                Email = persons[2].Email,
                 StatusId = 1
             };
             var user3 = new User
             {
                 Id = User3Id,
-                UserName = Faker.Person.UserName,
-                NormalizedEmail = emails[3].ToUpper(),
-                NormalizedUserName = emails[3].ToUpper(),
-                Email = emails[3],
+                UserName = persons[3].UserName,
+                NormalizedEmail = persons[3].Email.ToUpper(),
+                NormalizedUserName = persons[3].UserName.ToUpper(),
+                Email = persons[3].Email,
                 StatusId = 1
             };
             var userTonia = new User
@@ -121,12 +119,12 @@ namespace Infrastructure.Data
         {
             builder.Entity<Unit>()
                 .HasData(
-                    new Unit { Type = "times", ShortType = "times"},
-                    new Unit { Type = "minutes", ShortType = "min"},
-                    new Unit { Type = "meters", ShortType = "m"},
-                    new Unit { Type = "kilometers", ShortType = "km"},
-                    new Unit { Type = "milliliters", ShortType = "ml"},
-                    new Unit { Type = "pages", ShortType = "pages"}
+                    new Unit { Id = 1, Type = "times", ShortType = "times"},
+                    new Unit { Id = 2, Type = "minutes", ShortType = "min"},
+                    new Unit { Id = 3, Type = "meters", ShortType = "m"},
+                    new Unit { Id = 4, Type = "kilometers", ShortType = "km"},
+                    new Unit { Id = 5, Type = "milliliters", ShortType = "ml"},
+                    new Unit { Id = 6, Type = "pages", ShortType = "pages"}
                     );
         }
 
@@ -138,9 +136,9 @@ namespace Infrastructure.Data
         {
             builder.Entity<Frequency>()
                 .HasData(
-                    new Frequency{Type = "Per Day"},
-                    new Frequency{Type = "Per Week"},
-                    new Frequency{Type = "Per Month"}
+                    new Frequency{ Id = 1, Type = "Per Day"},
+                    new Frequency{ Id = 2, Type = "Per Week"},
+                    new Frequency{ Id = 3, Type = "Per Month"}
                     );
         }
 
@@ -178,6 +176,7 @@ namespace Infrastructure.Data
             {
                 new()
                 {
+                    Id = 1,
                     ChallengeId = 1,
                     Date = DateTime.Today.AddDays(1),
                     CountOfUnitsDone = 750,
@@ -189,6 +188,7 @@ namespace Infrastructure.Data
             {
                 var task = new DailyTask
                 {
+                    Id = i,
                     ChallengeId = 1,
                     Date = DateTime.Today.AddDays(i),
                     CountOfUnitsDone = 0,
