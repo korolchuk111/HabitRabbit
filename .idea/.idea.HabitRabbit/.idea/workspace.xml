@@ -25,6 +25,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -103,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654340757289</updated>
       <workItem from="1654340762426" duration="4956000" />
-      <workItem from="1654680637246" duration="961000" />
+      <workItem from="1654680637246" duration="3503000" />
     </task>
     <servers />
   </component>
