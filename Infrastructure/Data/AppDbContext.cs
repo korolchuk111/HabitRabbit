@@ -19,6 +19,7 @@ namespace Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetAssembly(typeof(UserConfiguration)));
+            builder.Seed();
             base.OnModelCreating(builder);
         }
     }
