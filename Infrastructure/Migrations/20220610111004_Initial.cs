@@ -53,7 +53,8 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ShortType = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -213,7 +214,7 @@ namespace Infrastructure.Migrations
                     FrequencyId = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     EndDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    IsRegistrationOpened = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
+                    IsRegistrationOpened = table.Column<bool>(type: "bit", nullable: true, defaultValue: true),
                     IsCompleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
@@ -284,6 +285,80 @@ namespace Infrastructure.Migrations
                         principalTable: "Challenges",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Frequencies",
+                columns: new[] { "Id", "Type" },
+                values: new object[,]
+                {
+                    { 1, "Per Day" },
+                    { 2, "Per Week" },
+                    { 3, "Per Month" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Statuses",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 1, "Beginner" });
+
+            migrationBuilder.InsertData(
+                table: "Units",
+                columns: new[] { "Id", "ShortType", "Type" },
+                values: new object[,]
+                {
+                    { 1, "times", "times" },
+                    { 2, "min", "minutes" },
+                    { 3, "m", "meters" },
+                    { 4, "km", "kilometers" },
+                    { 5, "ml", "milliliters" },
+                    { 6, "pages", "pages" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "StatusId", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "39d1363e-822e-493d-815e-6c2cc82c66df", 0, "a1261fc3-d767-434d-9d46-496d3025e448", "User", "anna.korolchuk@oa.edu.ua", false, false, null, "ANNA.KOROLCHUK@OA.EDU.UA", "ANNA.KOROLCHUK@OA.EDU.UA", "AQAAAAEAACcQAAAAEJ1IRkBE3YmWZBMr8porMft+iutU1wbqPQmNuvjrI1YISmPA8WY+o2FO/3zvY1U+Bw==", null, false, "bc5730a6-ac37-49b1-a1ca-f0c8645643b0", 1, false, "a_korolchuk" },
+                    { "cc210271-921d-48f8-b759-e442547288e1", 0, "1de4721c-be9a-4057-b2c5-2968ee742f8e", "User", "antonina.loboda@oa.edu.ua", false, false, null, "ANTONINA.LOBODA@OA.EDU.UA", "ANTONINA.LOBODA@OA.EDU.UA", "AQAAAAEAACcQAAAAEMJ5pyTBEVpONKpnJHn/VKPGLq2EuWCoOG6EmPkZN0L7n0FB3cmatIegPE2LAbvE9g==", null, false, "1d8997e4-fe1e-453c-9aac-2f64da4bd5eb", 1, false, "ton4ik" },
+                    { "2c3542d5-088a-4aed-b8d7-e785ea9ede84", 0, "ac0a6301-5c18-49ea-a994-eed56a70d5ed", "User", "Ramiro.Stehr@hotmail.com", false, false, null, "RAMIRO.STEHR@HOTMAIL.COM", "RAMIRO80", "AQAAAAEAACcQAAAAEJ23O4cRbvEFnRqd5kIttQaFEyi6xCF/sCOa4/AAOe/+xsIc8dPmq6fxGVpayi2IXg==", null, false, "1a91f0e1-ce62-4145-88ba-5c26093a50df", 1, false, "Ramiro80" },
+                    { "55beb5b9-a4d7-447a-9992-6199b7a4b5a5", 0, "d3b6cd54-9c9e-41b1-8270-08a2d3f33900", "User", "Angelo36@hotmail.com", false, false, null, "ANGELO36@HOTMAIL.COM", "ANGELO_SATTERFIELD66", "AQAAAAEAACcQAAAAEJ2cq6r+5yvv/DV0JaP/5MCDi0KpC0jJK9tKx0B3UxdbyjgbdzQwxrwdF0hGyjGSbA==", null, false, "b2b1d776-7966-4fd4-aad8-ca0c12917d5f", 1, false, "Angelo_Satterfield66" },
+                    { "ff5143a6-8d50-4141-a99a-a465a523e435", 0, "61b8d12e-e0d2-4624-a648-2a48cf0e0c3a", "User", "Marion79@yahoo.com", false, false, null, "MARION79@YAHOO.COM", "MARION_MOEN", "AQAAAAEAACcQAAAAEOzfOxDnXCEbx77Qb6erElUlMwfAFYFO9efkbQubw2ZM/xZltQoVj086MzgBexaE6g==", null, false, "030bea92-4330-4ebc-9263-fe3eea6ea49c", 1, false, "Marion_Moen" },
+                    { "95c04a47-51b9-4669-840f-abea3942cb8a", 0, "407b6476-90db-444d-b75b-2a1c8646d9f7", "User", "Gwen35@hotmail.com", false, false, null, "GWEN35@HOTMAIL.COM", "GWEN.LANGOSH", "AQAAAAEAACcQAAAAENwn0OlJaEZkY93Zt+gzpovxr7xnGeNSKEyjEVz31rHrmzqUz+y4/j3rOItX/os7vg==", null, false, "f8965f65-18fd-4be6-9297-2df23ebbecdb", 1, false, "Gwen.Langosh" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Challenges",
+                columns: new[] { "Id", "AuthorId", "CountOfUnits", "EndDate", "FrequencyId", "IsRegistrationOpened", "StartDate", "Title", "UnitId" },
+                values: new object[] { 1, "2c3542d5-088a-4aed-b8d7-e785ea9ede84", 1500, new DateTimeOffset(new DateTime(2022, 7, 2, 14, 10, 3, 667, DateTimeKind.Unspecified).AddTicks(8568), new TimeSpan(0, 3, 0, 0, 0)), 1, true, new DateTimeOffset(new DateTime(2022, 6, 11, 14, 10, 3, 667, DateTimeKind.Unspecified).AddTicks(7002), new TimeSpan(0, 3, 0, 0, 0)), "Drink water", 5 });
+
+            migrationBuilder.InsertData(
+                table: "DailyTasks",
+                columns: new[] { "Id", "ChallengeId", "CountOfUnitsDone", "Date", "PercentOfDone" },
+                values: new object[,]
+                {
+                    { 1, 1, 750, new DateTime(2022, 6, 11, 0, 0, 0, 0, DateTimeKind.Local), 50 },
+                    { 19, 1, 0, new DateTime(2022, 6, 29, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 18, 1, 0, new DateTime(2022, 6, 28, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 17, 1, 0, new DateTime(2022, 6, 27, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 16, 1, 0, new DateTime(2022, 6, 26, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 15, 1, 0, new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 14, 1, 0, new DateTime(2022, 6, 24, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 13, 1, 0, new DateTime(2022, 6, 23, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 12, 1, 0, new DateTime(2022, 6, 22, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 20, 1, 0, new DateTime(2022, 6, 30, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 11, 1, 0, new DateTime(2022, 6, 21, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 9, 1, 0, new DateTime(2022, 6, 19, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 8, 1, 0, new DateTime(2022, 6, 18, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 7, 1, 0, new DateTime(2022, 6, 17, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 6, 1, 0, new DateTime(2022, 6, 16, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 5, 1, 0, new DateTime(2022, 6, 15, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 4, 1, 0, new DateTime(2022, 6, 14, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 3, 1, 0, new DateTime(2022, 6, 13, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 2, 1, 0, new DateTime(2022, 6, 12, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 10, 1, 0, new DateTime(2022, 6, 20, 0, 0, 0, 0, DateTimeKind.Local), 0 },
+                    { 21, 1, 0, new DateTime(2022, 7, 1, 0, 0, 0, 0, DateTimeKind.Local), 0 }
                 });
 
             migrationBuilder.CreateIndex(
