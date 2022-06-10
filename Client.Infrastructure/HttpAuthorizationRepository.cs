@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using Shared.UserDTO;
 using WebAPI.DTO;
 
 namespace Client.Infrastructure
@@ -9,9 +10,9 @@ namespace Client.Infrastructure
     {
         public HttpAuthorizationRepository(HttpClient httpClient) : base(httpClient) { }
 
-        public async Task RegisterAsync(UserDTO user)
+        public async Task RegisterAsync(UserRegistrationDTO user)
         {
-            await _httpClient.PostAsJsonAsync($"/api/User/register", user);
+            await _httpClient.PostAsJsonAsync($"/api/Authorization/register", user);
         }
     }
 }
