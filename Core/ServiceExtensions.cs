@@ -11,6 +11,7 @@ namespace Core
         public static void AddCustomServices(this IServiceCollection services)
         {
             services.AddScoped<IAuthorizationService, AuthorizationService>();
+            services.AddScoped<IUnitService, UnitService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)
@@ -18,6 +19,7 @@ namespace Core
             var configures = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new UserProfile());
+                mc.AddProfile(new UnitProfile());
             });
 
             var mapper = configures.CreateMapper();

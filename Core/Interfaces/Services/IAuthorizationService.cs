@@ -6,6 +6,7 @@ namespace Core.Interfaces.Services
     public interface IAuthorizationService
     {
         Task<string> LoginAsync(UserLoginDTO userLogin);
-        Task RegisterAsync(UserRegistrationDTO userRegistrationDto);
+        Task<string> RegisterAsync(UserRegistrationDTO userRegistrationDto);
+        Task<UserDTO> GetUserByJWT(string jwtToken);
     }
 }

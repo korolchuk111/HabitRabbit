@@ -9,6 +9,7 @@ namespace Core.Profiles
         public UserProfile()
         {
             CreateMap<User, UserRegistrationDTO>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
         }
 
     }

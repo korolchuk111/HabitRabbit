@@ -18,17 +18,23 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult> Register([FromBody] UserRegistrationDTO user)
+        public async Task<ActionResult> Register(UserRegistrationDTO user)
         {
-            await _authorizationService.RegisterAsync(user);
-            return Ok();
+            var token = await _authorizationService.RegisterAsync(user);
+            return Ok(token);
         }
         
         [HttpPost("login")]
-        public async Task<ActionResult> Login([FromBody] UserLoginDTO userLoginDto)
+        public async Task<ActionResult> Login(UserLoginDTO userLoginDto)
         {
-            var id = await _authorizationService.LoginAsync(userLoginDto);
-            return Ok(id);
+            var token = await _authorizationService.LoginAsync(userLoginDto);
+            return Ok(token);
+        }
+        
+        [HttpGet("get-user-by-jwt")]
+        public async Task<ActionResult> GetUserByJwt(string token)
+        {
+            return Ok(await _authorizationService.GetUserByJWT(token));
         }
     }
 }
