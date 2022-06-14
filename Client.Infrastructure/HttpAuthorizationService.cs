@@ -1,7 +1,9 @@
-using System.Net.Http;
+using System;
 using System.Threading.Tasks;
 using Shared.UserDTO;
+using System.Net.Http;
 using System.Net.Http.Json;
+using System.Security.Claims;
 
 namespace Client.Infrastructure
 {
@@ -19,6 +21,12 @@ namespace Client.Infrastructure
         {
             var response = await HttpClient.PostAsJsonAsync($"/api/Authorization/login", user);
             return await response.Content.ReadAsStringAsync();
+        }
+
+        public async Task<UserDTO?> GetUserByJwt(string token)
+        {
+            var response = await HttpClient.GetFromJsonAsync<UserDTO>($"/api/Authorization/get-user-by-jwt?token={token}");
+            return response;
         }
     }
 }

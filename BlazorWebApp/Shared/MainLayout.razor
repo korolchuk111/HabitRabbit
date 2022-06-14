@@ -8,7 +8,11 @@
     <NavBar />
 
     <div class="container-fluid py-4">
+        <AuthorizeView>
+            <NotAuthorized>You're not authorized</NotAuthorized>
+            <Authorized><p>Uhhooo you are authorized!</p></Authorized>
+        </AuthorizeView>
         @Body
-        <Footer />
+        <Footer/>
     </div>
 </main>

@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Shared.UserDTO;
 
@@ -7,6 +8,6 @@ namespace Core.Interfaces.Services
     {
         Task<string> LoginAsync(UserLoginDTO userLogin);
         Task<string> RegisterAsync(UserRegistrationDTO userRegistrationDto);
-        Task<UserDTO> GetUserByJWT(string jwtToken);
+        Task<UserDTO> GetUserByJwt(string jwtToken);
     }
 }

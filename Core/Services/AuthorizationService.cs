@@ -26,7 +26,7 @@ namespace Core.Services
             UserManager<User> userManager,
             IConfiguration configuration,
             IRepository<User> userRepository
-            )
+        )
         {
             _mapper = mapper;
             _userManager = userManager;
@@ -39,11 +39,12 @@ namespace Core.Services
             var user = _mapper.Map<User>(userRegistrationDto);
             user.StatusId = 1;
             var createUserResult = await _userManager.CreateAsync(user, userRegistrationDto.Password);
-            
+
             if (!createUserResult.Succeeded)
             {
                 throw new Exception("User creation failed");
             }
+
             return GenerateJwtToken(user);
             // return new UserDTO{Id = user.Id, Email = user.Email, UserName = user.UserName, StatusId = user.StatusId};
         }
@@ -80,7 +81,8 @@ namespace Core.Services
             {
                 Subject = claimsIdentity,
                 Expires = DateTime.UtcNow.AddHours(12),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha256Signature)
             };
             //creating a token handler
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -89,16 +91,14 @@ namespace Core.Services
             //returning the token back
             return tokenHandler.WriteToken(token);
         }
-        
-        public async Task<UserDTO> GetUserByJWT(string jwtToken)
+
+        public async Task<UserDTO> GetUserByJwt(string jwtToken)
         {
             try
             {
-                //getting the secret key
                 var secretKey = _configuration["JWTSettings:Secret"];
                 var key = Encoding.ASCII.GetBytes(secretKey);
-
-                //preparing the validation parameters
+                
                 var tokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
@@ -108,7 +108,6 @@ namespace Core.Services
                 };
                 var tokenHandler = new JwtSecurityTokenHandler();
 
-                //validating the token
                 var principle = tokenHandler.ValidateToken
                     (jwtToken, tokenValidationParameters, out var securityToken);
                 var jwtSecurityToken = (JwtSecurityToken)securityToken;
@@ -116,10 +115,9 @@ namespace Core.Services
                 if (jwtSecurityToken != null
                     && jwtSecurityToken.ValidTo > DateTime.Now
                     && jwtSecurityToken.Header.Alg.Equals(
-                        SecurityAlgorithms.HmacSha256, 
+                        SecurityAlgorithms.HmacSha256,
                         StringComparison.InvariantCultureIgnoreCase))
                 {
-                    //returning the user if found
                     var userId = principle.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                     var user = await _userRepository.GetByIdAsync(userId);
                     return _mapper.Map<UserDTO>(user);
@@ -127,11 +125,9 @@ namespace Core.Services
             }
             catch (Exception ex)
             {
-                //logging the error and returning null
-                Console.WriteLine("Exception : " + ex.Message);
-                return null;
+            //     Console.WriteLine("Exception : " + ex.Message);
+            return null;
             }
-            //returning null if token is not validated
             return null;
         }
     }

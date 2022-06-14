@@ -67,7 +67,7 @@
             Password = UserLoginDto.Password
         });
         await _localStorageService.SetItemAsync("access_token", token);
-        _navigationManager.NavigateTo("/");
+        _navigationManager.NavigateTo("/user");
     }
     
     

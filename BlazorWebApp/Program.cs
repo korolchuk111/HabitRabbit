@@ -1,3 +1,4 @@
+global using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -17,9 +18,12 @@ namespace BlazorWebApp
             builder.Services.AddHttpClient("public", 
                 client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
 
-            builder.Services.AddTransient(sp => new System.Net.Http.HttpClient 
+            builder.Services.AddScoped(sp => new System.Net.Http.HttpClient 
                 { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+            builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+            builder.Services.AddAuthorizationCore();
+            
             builder.Services.AddScoped<HttpAuthorizationService>();
             builder.Services.AddBlazoredLocalStorage();
             await builder.Build().RunAsync();
