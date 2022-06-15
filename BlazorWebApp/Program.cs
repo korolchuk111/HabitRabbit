@@ -26,6 +26,7 @@ namespace BlazorWebApp
             
             builder.Services.AddScoped<HttpAuthorizationService>();
             builder.Services.AddBlazoredLocalStorage();
+            
             await builder.Build().RunAsync();
         }
     }

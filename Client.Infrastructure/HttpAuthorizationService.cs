@@ -25,7 +25,8 @@ namespace Client.Infrastructure
 
         public async Task<UserDTO?> GetUserByJwt(string token)
         {
-            var response = await HttpClient.GetFromJsonAsync<UserDTO>($"/api/Authorization/get-user-by-jwt?token={token}");
+            var response = await HttpClient
+                    .GetFromJsonAsync<UserDTO?>($"/api/Authorization/get-user-by-jwt?token={token}");
             return response;
         }
     }

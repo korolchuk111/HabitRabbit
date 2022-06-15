@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Core.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -33,9 +32,15 @@ namespace WebAPI.Controllers
         }
         
         [HttpGet("get-user-by-jwt")]
-        public async Task<ActionResult> GetUserByJwt(string token)
+        public async Task<ActionResult<UserDTO>> GetUserByJwt(string token)
         {
-            return Ok(await _authorizationService.GetUserByJwt(token));
+            var user = await _authorizationService.GetUserByJwt(token);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            return user;
         }
     }
 }

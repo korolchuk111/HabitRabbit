@@ -12,6 +12,7 @@ namespace Core
         {
             services.AddScoped<IAuthorizationService, AuthorizationService>();
             services.AddScoped<IUnitService, UnitService>();
+            services.AddScoped<IFrequencyService, FrequencyService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)
@@ -20,6 +21,7 @@ namespace Core
             {
                 mc.AddProfile(new UserProfile());
                 mc.AddProfile(new UnitProfile());
+                mc.AddProfile(new FrequencyProfile());
             });
 
             var mapper = configures.CreateMapper();

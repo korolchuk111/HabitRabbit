@@ -123,10 +123,9 @@ namespace Core.Services
                     return _mapper.Map<UserDTO>(user);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-            //     Console.WriteLine("Exception : " + ex.Message);
-            return null;
+                return null;
             }
             return null;
         }

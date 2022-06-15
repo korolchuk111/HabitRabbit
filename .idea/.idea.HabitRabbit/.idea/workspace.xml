@@ -10,22 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37270f76-304e-42f7-98fc-8f83959c93f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BlazorWebApp/CustomAuthStateProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/Shared/UserDTO/UserClaimsDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IFrequencyService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Profiles/FrequencyProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Services/FrequencyService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/Shared/FrequencyDTO/FrequencyDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/Controllers/FrequencyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebApp/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/App.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/BlazorWebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/BlazorWebApp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/LoginForm.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/LoginForm.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/MainLayout.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/UserLine.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/UserLine.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebApp/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/_Imports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/wwwroot/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Interfaces/Services/IAuthorizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IAuthorizationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/ServiceExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Services/AuthorizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/AuthorizationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/AuthorizationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/AuthorizationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/DTO/UserDTO.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +43,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpBaseService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2499c1873f584d02976265b79bf3f7a11bbf90/11A/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2499c1873f584d02976265b79bf3f7a11bbf90/38/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2af8d53e34a498c877939061bca11bcf9600/ab/7644745f/DatePicker`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpAuthorizationService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ed9b37a02174158b69287ee541e01418f5d90/2C4/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -190,7 +193,8 @@
       <workItem from="1654975245584" duration="5826000" />
       <workItem from="1655054465295" duration="5518000" />
       <workItem from="1655106497457" duration="6653000" />
-      <workItem from="1655233233893" duration="4559000" />
+      <workItem from="1655233233893" duration="4663000" />
+      <workItem from="1655277700317" duration="18230000" />
     </task>
     <task id="LOCAL-00001" summary="authorization endpoint">
       <created>1654877065809</created>
@@ -199,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654877065809</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="authorization done!">
+      <created>1655237911330</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655237911330</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +235,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="authorization endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="authorization endpoint" />
+    <MESSAGE value="authorization done!" />
+    <option name="LAST_COMMIT_MESSAGE" value="authorization done!" />
   </component>
 </project>
