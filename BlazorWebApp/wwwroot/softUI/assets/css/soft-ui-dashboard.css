@@ -80,6 +80,9 @@
 *::after {
   box-sizing: border-box;
 }
+heading{
+    text-align: center;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   :root {
@@ -2738,6 +2741,22 @@ progress {
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
+.form-control1 {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d2d6da;
+    appearance: none;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
@@ -5157,6 +5176,38 @@ fieldset:disabled .btn {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+}
+
+.card1 {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-border-width: 0;
+    --bs-card-border-color: rgba(0, 0, 0, 0.125);
+    --bs-card-border-radius: 1rem;
+    --bs-card-box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+    --bs-card-inner-border-radius: 1rem;
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: #fff;
+    --bs-card-cap-color:;
+    --bs-card-height:;
+    --bs-card-color:;
+    --bs-card-bg: #fff;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius) position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }
 
 .card>hr {
@@ -20664,8 +20715,8 @@ fieldset:disabled .btn {
 
 .btn-dark:hover,
 .btn.bg-gradient-dark:hover {
-  background-color: #344767;
-  border-color: #344767;
+    background-color: #f00488;
+    border-color: #f00488;
 }
 
 .btn-dark .btn.bg-outline-dark,
@@ -20675,12 +20726,12 @@ fieldset:disabled .btn {
 
 .btn-dark:not(:disabled):not(.disabled).active,
 .btn-dark:not(:disabled):not(.disabled):active,
-.show>.btn-dark.dropdown-toggle,
+.show > .btn-dark.dropdown-toggle,
 .btn.bg-gradient-dark:not(:disabled):not(.disabled).active,
 .btn.bg-gradient-dark:not(:disabled):not(.disabled):active,
-.show>.btn.bg-gradient-dark.dropdown-toggle {
-  color: color-yiq(#344767);
-  background-color: #344767;
+.show > .btn.bg-gradient-dark.dropdown-toggle {
+    color: color-yiq(#9e1cb5);
+    background-color: #f00488;
 }
 
 .btn-dark.focus,
@@ -20694,12 +20745,12 @@ fieldset:disabled .btn {
   box-shadow: none;
 }
 
-.btn-outline-dark:hover:not(.active) {
-  background-color: transparent;
-  opacity: .75;
-  box-shadow: none;
-  color: #344767;
-}
+    .btn-outline-dark:hover:not(.active) {
+        background-color: transparent;
+        opacity: .75;
+        box-shadow: none;
+        color: #f00488;
+    }
 
 .btn-white:hover,
 .btn.bg-gradient-white:hover {
@@ -21683,8 +21734,10 @@ label,
 }
 
 .bg-gradient-info {
-  background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
+    background-image: linear-gradient(310deg, #ed058a 0%, #9c1db6 100%);
 }
+
+
 
 .bg-gradient-warning {
   background-image: linear-gradient(310deg, #f53939 0%, #fbcf33 100%);

@@ -28,6 +28,9 @@ namespace BlazorWebApp
             builder.Services.AddBlazoredLocalStorage();
             
             await builder.Build().RunAsync();
+
+
+
         }
     }
 }
