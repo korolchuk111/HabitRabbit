@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,14 @@ namespace WebAPI
             services.AddCustomServices();
             
             services.AddAutoMapper();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => 
+                    builder.WithOrigins("https://localhost:5001")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
+
 
             services.AddResponseCaching();
             services.AddRepositories();
@@ -38,6 +47,9 @@ namespace WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
+
+            services.AddRazorPages();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +57,7 @@ namespace WebAPI
         {
             if (env.IsDevelopment())
             {
+                app.UseWebAssemblyDebugging();
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
@@ -52,14 +65,19 @@ namespace WebAPI
 
             app.UseHttpsRedirection();
 
+            app.UseBlazorFrameworkFiles();
+            app.UseStaticFiles();
+            
             app.UseRouting();
-
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapFallbackToFile("index.html");
             });
         }
     }

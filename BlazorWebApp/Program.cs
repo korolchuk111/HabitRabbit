@@ -1,13 +1,10 @@
-
+global using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using Blazored.LocalStorage;
+using Client.Infrastructure;
 
 namespace BlazorWebApp
 {
@@ -18,8 +15,18 @@ namespace BlazorWebApp
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddHttpClient("public", 
+                client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
 
+            builder.Services.AddScoped(sp => new System.Net.Http.HttpClient 
+                { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+            builder.Services.AddAuthorizationCore();
+            
+            builder.Services.AddScoped<HttpAuthorizationService>();
+            builder.Services.AddBlazoredLocalStorage();
+            
             await builder.Build().RunAsync();
 
 

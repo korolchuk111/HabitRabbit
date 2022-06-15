@@ -25,7 +25,13 @@
 
 <body class="g-sidenav-show  bg-gray-100">
 
-    <div id="app">Loading...</div>
+    <div id="app">
+        <div style="position:static; height:60px;margin-top: 15%; text-align:center">
+            <div style="text-align:center; left:0; position: absolute; width: 100%">
+                <div class="spinner-grow text-primary" style="width: 300px; height: 300px" role="status"></div>
+            </div>
+        </div>
+    </div>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
@@ -221,13 +227,10 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script>
-
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
-<script src="/softUI/assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
-
-
-</body> 
-
-
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/softUI/assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
+</body>
+  
 </html >

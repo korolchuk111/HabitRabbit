@@ -7,8 +7,4 @@
         <LangVersion>10</LangVersion>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Shared\Shared\Shared.csproj" />
-    </ItemGroup>
-
 </Project>
