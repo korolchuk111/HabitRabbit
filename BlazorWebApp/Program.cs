@@ -22,7 +22,8 @@ namespace BlazorWebApp
 
             await builder.Build().RunAsync();
 
-         
+
+
         }
     }
 }
