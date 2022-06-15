@@ -21734,8 +21734,10 @@ label,
 }
 
 .bg-gradient-info {
-  background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
+    background-image: linear-gradient(310deg, #ed058a 0%, #9c1db6 100%);
 }
+
+
 
 .bg-gradient-warning {
   background-image: linear-gradient(310deg, #f53939 0%, #fbcf33 100%);
