@@ -1,4 +1,8 @@
-﻿@inject NavigationManager NavigationManager
+﻿@using Client.Infrastructure
+@using global::Shared.ChallengeDTO
+@inject NavigationManager _navigationManager
+@inject HttpChallengeService _challengeService
+
 <div class="col-12 mt-4">
     <div class="card mb-4">
 
@@ -7,12 +11,8 @@
                 <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                     <div class="card card-blog card-plain">
                         <div class="position-relative">
-
-
-
                         </div>
                         <div class="card-body px-1 pb-0">
-
                             <p class="text-gradient text-dark mb-2 text-sm">Habit #1</p>
                             <a href="javascript:;">
                                 <h5>
@@ -105,5 +105,18 @@
     </div>
 </div>
 
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
 
-@code { }
+    ChallengeDTO ChallengeDto { get; set; }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateTask;
+        var userName = authState.User.Identity.Name;
+        var challenges = await _challengeService.GetChallengesByUser(userName);
+        ChallengeDto = challenges[0];
+    }
+
+}

@@ -1,6 +1,8 @@
 ﻿@layout MainLayout
 @page "/user"
 @inject NavigationManager NavigationManager
+@attribute [Authorize]
+
 <UserLine />
 <div class="container-fluid py-4">
     <div class="row">

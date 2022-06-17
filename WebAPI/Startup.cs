@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Infrastructure;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebAPI
 {
@@ -25,8 +26,13 @@ namespace WebAPI
             services.AddDbContext(Configuration.GetConnectionString("DefaultConnection"));
 
             services.AddIdentityDbContext();
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+                    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+                });
 
-            services.AddAuthentication();
+            // services.AddAuthentication();
 
             services.AddCustomServices();
             
@@ -39,7 +45,7 @@ namespace WebAPI
                         .AllowAnyHeader());
             });
 
-
+            services.AddHttpContextAccessor();
             services.AddResponseCaching();
             services.AddRepositories();
             services.AddControllers();

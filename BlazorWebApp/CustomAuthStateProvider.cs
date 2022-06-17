@@ -1,4 +1,6 @@
 using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Blazored.LocalStorage;
@@ -11,14 +13,17 @@ namespace BlazorWebApp
     {
         private readonly ILocalStorageService _localStorage;
         private readonly HttpAuthorizationService _httpAuthorizationService;
+        private readonly HttpClient _httpClient;
 
         public CustomAuthStateProvider(
             ILocalStorageService localStorage,
-            HttpAuthorizationService httpAuthorizationService
+            HttpAuthorizationService httpAuthorizationService,
+            HttpClient httpClient
             )
         {
             _localStorage = localStorage;
             _httpAuthorizationService = httpAuthorizationService;
+            _httpClient = httpClient;
         }
         
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
@@ -27,6 +32,7 @@ namespace BlazorWebApp
 
             if (token == null || token.Equals(string.Empty))
             {
+                _httpClient.DefaultRequestHeaders.Authorization = null;
                 return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
             }
             var user = await GetUserByJwtAsync(token);
@@ -35,6 +41,8 @@ namespace BlazorWebApp
             {
                 var claims = GetClaimsPrinciple(user);
                 state = new AuthenticationState(claims);
+                _httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", token);
             
                 NotifyAuthenticationStateChanged(Task.FromResult(state));
             }
