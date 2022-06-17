@@ -10,22 +10,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37270f76-304e-42f7-98fc-8f83959c93f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IFrequencyService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Profiles/FrequencyProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Services/FrequencyService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/Shared/FrequencyDTO/FrequencyDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAPI/Controllers/FrequencyController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebApp/wwwroot/custom_style/my_footer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client.Infrastructure/HttpChallengeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IChallengeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IDailyTaskService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Profiles/ChallengeProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Services/ChallengeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Services/DailyTaskService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Services/UserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/Shared/ChallengeDTO/ChallengeDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/Shared/DailyTaskDTO/DailyTaskDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebAPI/Controllers/ChallengeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/App.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/CustomAuthStateProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/CustomAuthStateProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/EditHabit.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/EditHabit.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Habit.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Habit.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Habits.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Habits.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/NewHabit.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/NewHabit.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Progress.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Progress.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Setting.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Setting.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/User.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/User.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/UserLine.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/UserLine.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/_Imports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/wwwroot/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/HabbitsAdd.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/HabbitsAdd.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/LoginFooter.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/LoginFooter.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/LoginForm.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/LoginForm.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/RegisterForm.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/RegisterForm.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/RegisterLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/RegisterLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/wwwroot/softUI/assets/scss/soft-ui-dashboard/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/wwwroot/softUI/assets/scss/soft-ui-dashboard/_footer.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Core.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/ServiceExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Services/AuthorizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/AuthorizationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/AuthorizationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/AuthorizationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +62,12 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpBaseService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2499c1873f584d02976265b79bf3f7a11bbf90/11A/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2499c1873f584d02976265b79bf3f7a11bbf90/38/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2af8d53e34a498c877939061bca11bcf9600/ab/7644745f/DatePicker`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpAuthorizationService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpBaseService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ed9b37a02174158b69287ee541e01418f5d90/2C4/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -70,10 +90,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebAPI">
+    <configuration name="WebAPI JavaScript" type="JavascriptDebugType" uri="https://localhost:5001">
+      <method v="2" />
+    </configuration>
     <configuration name="BlazorAppWithServer" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BlazorAppWithServer/BlazorAppWithServer.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
@@ -141,6 +164,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="53e2f627-b1a7-4dfa-bfa7-5b83cc034776" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -156,7 +180,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
-      <browser name="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -172,6 +196,7 @@
       <item itemvalue=".NET Launch Settings Profile.BlazorWebApp: IIS Express" />
       <item itemvalue=".NET Launch Settings Profile.WebAPI" />
       <item itemvalue=".NET Launch Settings Profile.WebAPI: IIS Express" />
+      <item itemvalue="JavaScript Debug.WebAPI JavaScript" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -196,6 +221,9 @@
       <workItem from="1655106497457" duration="6653000" />
       <workItem from="1655233233893" duration="4663000" />
       <workItem from="1655277700317" duration="18230000" />
+      <workItem from="1655382664824" duration="5056000" />
+      <workItem from="1655408705814" duration="6640000" />
+      <workItem from="1655456270231" duration="8623000" />
     </task>
     <task id="LOCAL-00001" summary="authorization endpoint">
       <created>1654877065809</created>
@@ -238,5 +266,9 @@
     <MESSAGE value="authorization endpoint" />
     <MESSAGE value="authorization done!" />
     <option name="LAST_COMMIT_MESSAGE" value="authorization done!" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
