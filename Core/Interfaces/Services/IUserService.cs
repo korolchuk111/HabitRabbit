@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Shared.UnitDTO;
-
+using Shared.UserDTO;
 namespace Core.Interfaces.Services
 {
-    public interface IUnitService
+    public interface IUserService
     {
-        IList<UnitDTO> GetAllUnits();
-      
+        Task<IList<UserDTO>> GetAllUser();
+
     }
 }

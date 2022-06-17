@@ -13,6 +13,7 @@ namespace Core
             services.AddScoped<IAuthorizationService, AuthorizationService>();
             services.AddScoped<IUnitService, UnitService>();
             services.AddScoped<IFrequencyService, FrequencyService>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)
