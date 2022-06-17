@@ -14,13 +14,20 @@ namespace Client.Infrastructure
 
         public async Task<IList<ChallengeDTO>?> GetChallengesByUser(string userName)
         {
-            var response = await HttpClient.GetFromJsonAsync<IList<ChallengeDTO>>
-                ($"api/challenge?userName={userName}");
-            foreach (var challenge in response)
+            try
             {
-                Console.WriteLine(challenge.Title);
+                var response = await HttpClient.GetFromJsonAsync<IList<ChallengeDTO>>
+                    ($"api/challenge?userName={userName}");
+                foreach (var challenge in response)
+                {
+                    Console.WriteLine(challenge.Title);
+                }
+                return response;
             }
-            return response;
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }
