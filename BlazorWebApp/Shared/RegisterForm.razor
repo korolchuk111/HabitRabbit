@@ -5,6 +5,7 @@
 @inject HttpAuthorizationService _authorizationService
 @inject ILocalStorageService _localStorageService
 @inject NavigationManager _navigationManager
+@inject AuthenticationStateProvider _authStateProvider
 
 <div class="container">
     <div class="row mt-lg-n11 mt-md-n11 mt-n11 mb-n5">
@@ -52,8 +53,6 @@
 </div>
 
 @code {
-    [CascadingParameter]
-    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
     UserRegistrationDTO RegistrationDto { get; set; }  = new ();
     private bool _isAuthenticationFailed = false;
 
@@ -68,25 +67,11 @@
                 Password = RegistrationDto.Password
             });
             await _localStorageService.SetItemAsync("access_token", token);
-            await GetUserAuthState();
-        }
-        catch (Exception)
-        {
-            await GetUserAuthState();
-        }
-    }
-
-    private async Task GetUserAuthState()
-    {
-        var authState = await AuthenticationStateTask;
-        var user = authState.User;
-
-        if (user.Identity.IsAuthenticated)
-        {
+            await _authStateProvider.GetAuthenticationStateAsync();
             _isAuthenticationFailed = false;
             _navigationManager.NavigateTo("/");
         }
-        else
+        catch (Exception)
         {
             _isAuthenticationFailed = true;
             await _localStorageService.RemoveItemAsync("access_token");

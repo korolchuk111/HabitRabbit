@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Shared\Shared\Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\custom_style\my_footer.css" />
+  </ItemGroup>
+
 </Project>

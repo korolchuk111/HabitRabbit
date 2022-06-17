@@ -9,16 +9,15 @@
     <projectFile profileName="IIS Express">BlazorAppWithServer/BlazorAppWithServer.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37270f76-304e-42f7-98fc-8f83959c93f7" name="Changes" comment="">
+    <list default="true" id="37270f76-304e-42f7-98fc-8f83959c93f7" name="Changes" comment="authorised view updated">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/EditHabit.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/EditHabit.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Habit.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Habit.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Habits.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Habits.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/NewHabit.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/NewHabit.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Progress.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Progress.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/User.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/User.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/App.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/BlazorWebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/BlazorWebApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/LoginForm.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/LoginForm.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Services/ChallengeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/ChallengeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/RegisterForm.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/RegisterForm.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/RegisterLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/RegisterLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Services/AuthorizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/AuthorizationService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655237911330</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="authorised view updated">
+      <created>1655472204633</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655472204633</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +266,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="authorization endpoint" />
     <MESSAGE value="authorization done!" />
-    <option name="LAST_COMMIT_MESSAGE" value="authorization done!" />
+    <MESSAGE value="authorised view updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="authorised view updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

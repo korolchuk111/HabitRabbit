@@ -37,7 +37,7 @@ namespace Core.Services
         public async Task<string> RegisterAsync(UserRegistrationDTO userRegistrationDto)
         {
             var user = _mapper.Map<User>(userRegistrationDto);
-            var findUserByEmail = _userManager.FindByEmailAsync(userRegistrationDto.Email);
+            var findUserByEmail = await _userManager.FindByEmailAsync(userRegistrationDto.Email);
             if (findUserByEmail != null)
             {
                 throw new Exception("User with such email exists!");

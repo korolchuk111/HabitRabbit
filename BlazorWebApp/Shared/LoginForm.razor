@@ -5,8 +5,9 @@
 @inject HttpAuthorizationService _authorizationService
 @inject ILocalStorageService _localStorageService
 @inject NavigationManager _navigationManager
+@inject AuthenticationStateProvider _authStateProvider
 
-<main class="main-content  mt-0">
+<main class="main-content  mt-0 mb-5">
     <section>
         <div class="page-header min-vh-75">
             <div class="container">
@@ -54,7 +55,6 @@
                     </div>
                 </div>
             </div>
-
     </section>
 </main>
 
@@ -70,9 +70,7 @@
             Password = UserLoginDto.Password
         });
         await _localStorageService.SetItemAsync("access_token", token);
+        await _authStateProvider.GetAuthenticationStateAsync();
         _navigationManager.NavigateTo("/");
     }
-    
-    
-
 }
