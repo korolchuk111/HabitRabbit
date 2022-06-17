@@ -2,15 +2,20 @@
 @page "/habits"
 @attribute [Authorize]
 
-<UserLine />
-<div class="container-fluid py-4">
-    <div class="row">
-        <HabbitsAdd />
-    </div>
-</div>
-<NotAuthorized>
-    <RedirectToLogin />
-</NotAuthorized>
+<AuthorizeView>
+    <Authorized>
+        <UserLine/>
+            <div class="container-fluid py-4">
+                <div class="row">
+                    <HabbitsAdd/>
+                </div>
+            </div>
+    </Authorized>
+    <NotAuthorized>
+        <RedirectToLogin />
+    </NotAuthorized>
+</AuthorizeView>
+
 @code {
 
 }
