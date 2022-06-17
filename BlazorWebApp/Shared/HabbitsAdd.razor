@@ -97,15 +97,16 @@
 </div>
 
 @code {
-    [CascadingParameter]
-    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+    // [CascadingParameter]
+    // private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+    //
+    // ChallengeDTO ChallengeDto { get; set; }
+    //
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     var authState = await AuthenticationStateTask;
+    //     var userName = authState.User.Identity.Name;
+    //     var challenges = await _challengeService.GetChallengesByUser(userName);
+    // }
     
-    ChallengeDTO ChallengeDto { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        var authState = await AuthenticationStateTask;
-        var userName = authState.User.Identity.Name;
-        var challenges = await _challengeService.GetChallengesByUser(userName);
-    }
 }
