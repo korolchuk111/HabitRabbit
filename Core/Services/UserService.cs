@@ -3,7 +3,6 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Interfaces.Services;
-using Microsoft.AspNetCore.Identity;
 using Shared.UserDTO;
 
 namespace Core.Services

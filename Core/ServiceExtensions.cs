@@ -15,6 +15,7 @@ namespace Core
             services.AddScoped<IFrequencyService, FrequencyService>();
             services.AddScoped<IChallengeService, ChallengeService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDailyTaskService, DailyTaskService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)
@@ -25,6 +26,7 @@ namespace Core
                 mc.AddProfile(new UnitProfile());
                 mc.AddProfile(new FrequencyProfile());
                 mc.AddProfile(new ChallengeProfile());
+                mc.AddProfile(new DailyTaskProfile());
             });
 
             var mapper = configures.CreateMapper();

@@ -8,6 +8,7 @@ namespace Shared.DailyTaskDTO
         public string ChallengeTitle { get; set; }
         public int CountOfUnits { get; set; }
         public string UnitShortName { get; set; }
+        public string FrequencyType { get; set; }
         public DateTime Date { get; set; }
         public int CountOfUnitsDone { get; set; }
         public int PercentOfDone { get; set; }
