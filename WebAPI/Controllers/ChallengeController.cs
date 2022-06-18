@@ -2,6 +2,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Core.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
+using Shared.ChallengeDTO;
 
 namespace WebAPI.Controllers
 {
@@ -21,9 +22,16 @@ namespace WebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult> GetChallengesByUserId(string userName)
         {
-            var user = await _userService.GetUserByName(userName);
+            var user = _userService.GetUserByName(userName);
             var challenges = await _challengeService.GetAllChallengesByUser(user.Id);
             return Ok(challenges);
+        }
+
+        [HttpPost("create")]
+        public async Task<ActionResult> AddChallenge(CreateChallengeDTO createChallengeDto)
+        {
+            await _challengeService.AddChallenge(createChallengeDto);
+            return Ok();
         }
     }
 }

@@ -18,6 +18,9 @@ namespace Core.Profiles
                 .ForMember(d => d.UnitShortTitle,
                     opt => opt
                         .MapFrom(ch => ch.Unit.ShortType));
+            CreateMap<CreateChallengeDTO, Challenge>()
+                .ForMember(d => d.AuthorId,
+                    opt => opt.Ignore());
         }
     }
 }

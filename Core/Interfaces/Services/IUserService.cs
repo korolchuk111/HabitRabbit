@@ -6,6 +6,6 @@ namespace Core.Interfaces.Services
 {
     public interface IUserService
     {
-        Task<UserDTO> GetUserByName(string userName);
+        UserDTO GetUserByName(string userName);
     }
 }

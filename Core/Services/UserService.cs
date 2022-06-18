@@ -1,7 +1,7 @@
-using System.Security.Claims;
-using System.Threading.Tasks;
+using System.Linq;
 using AutoMapper;
 using Core.Entities;
+using Core.Interfaces;
 using Core.Interfaces.Services;
 using Microsoft.AspNetCore.Identity;
 using Shared.UserDTO;
@@ -10,18 +10,18 @@ namespace Core.Services
 {
     public class UserService : IUserService
     {
-        private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
+        private readonly IRepository<User> _userRepository;
 
-        public UserService(UserManager<User> userManager, IMapper mapper)
+        public UserService(IMapper mapper, IRepository<User> userRepository)
         {
-            _userManager = userManager;
             _mapper = mapper;
+            _userRepository = userRepository;
         }
 
-        public async Task<UserDTO> GetUserByName(string userName)
+        public UserDTO GetUserByName(string userName)
         {
-            var user = await _userManager.FindByNameAsync(userName);
+            var user = _userRepository.Query().First(user => user.UserName.Equals(userName)); 
             return _mapper.Map<UserDTO>(user);
         }
     }

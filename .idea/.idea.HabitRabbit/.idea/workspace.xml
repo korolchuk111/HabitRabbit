@@ -10,10 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37270f76-304e-42f7-98fc-8f83959c93f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Shared/Shared/ChallengeDTO/CreateChallengeDTO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/HabbitsAdd.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/HabbitsAdd.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client.Infrastructure/HttpChallengeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client.Infrastructure/HttpChallengeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Interfaces/Services/IChallengeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IChallengeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Interfaces/Services/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Profiles/ChallengeProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Profiles/ChallengeProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Services/ChallengeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/ChallengeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/ChallengeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/ChallengeController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,19 +42,23 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2499c1873f584d02976265b79bf3f7a11bbf90/11A/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Services/AuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2499c1873f584d02976265b79bf3f7a11bbf90/38/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Services/UnitService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ed9b37a02174158b69287ee541e01418f5d90/2C4/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Services/FrequencyService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Profiles/UserProfile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Interfaces/Services/IUnitService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2af8d53e34a498c877939061bca11bcf9600/ab/7644745f/DatePicker`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpAuthorizationService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Services/AuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/C#/HabitRabbit/BlazorWebApp/Pages/Progress.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/C#/HabitRabbit/BlazorWebApp/Pages/Progress.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Services/FrequencyService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/C#/HabitRabbit/BlazorWebApp/Shared/HabbitsAdd.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/C#/HabitRabbit/BlazorWebApp/Pages/Habit.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpBaseService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpAuthorizationService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/C#/HabitRabbit/BlazorWebApp/Shared/HabbitsAdd.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Profiles/UserProfile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/C#/HabitRabbit/BlazorWebApp/Pages/User.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/C#/HabitRabbit/BlazorWebApp/Pages/User.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Interfaces/Services/IAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Services/UnitService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Interfaces/Services/IUnitService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/C#/HabitRabbit/BlazorWebApp/Pages/Habit.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -270,7 +278,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
