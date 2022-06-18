@@ -28,7 +28,6 @@ namespace Core.Services
             _userService = userService;
             _dailyTaskRepository = dailyTaskRepository;
         }
-
         public async Task<IList<ChallengeDTO>> GetAllChallengesByUser(string userId)
         {
             var challenges = await _challengeRepository.Query()
@@ -70,6 +69,24 @@ namespace Core.Services
                 await _dailyTaskRepository.AddAsync(dailyTask);
             }
             await _dailyTaskRepository.SaveChangesAsync();
+        }
+
+        public async Task UpdateChallenge(UpdateChallengeDTO updateChallengeDto)
+        {
+            var user = _userService.GetUserByName(updateChallengeDto.AuthorName);
+            var challenge = _mapper.Map<Challenge>(updateChallengeDto);
+            challenge.AuthorId = user.Id;
+            await _challengeRepository.UpdateAsync(challenge);
+            await _challengeRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteChallenge(CreateChallengeDTO createChallengeDto)
+        {
+            var user = _userService.GetUserByName(createChallengeDto.AuthorName);
+            var challenge = _mapper.Map<Challenge>(createChallengeDto);
+            challenge.AuthorId = user.Id;
+            await _challengeRepository.DeleteAsync(challenge);
+            await _challengeRepository.SaveChangesAsync();
         }
     }
 }

@@ -21,6 +21,9 @@ namespace Core.Profiles
             CreateMap<CreateChallengeDTO, Challenge>()
                 .ForMember(d => d.AuthorId,
                     opt => opt.Ignore());
+            CreateMap<UpdateChallengeDTO, Challenge>()
+                .ForMember(d => d.AuthorId,
+                    opt => opt.Ignore());
         }
     }
 }

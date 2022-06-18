@@ -4701,6 +4701,7 @@ fieldset:disabled .btn {
 }
 
 .navbar-brand {
+  margin: 0 0px;
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: var(--bs-navbar-brand-margin-end);
@@ -22511,7 +22512,7 @@ hr.horizontal.gray-light {
 .navbar-vertical .navbar-brand>img,
 .navbar-vertical .navbar-brand-img {
   max-width: 100%;
-  max-height: 2rem;
+  max-height: 7rem;
 }
 
 .navbar-vertical .navbar-nav {
@@ -23238,7 +23239,7 @@ hr.horizontal.gray-light {
 }
 
 .sidenav-header {
-  height: 4.875rem;
+  height: 8.875rem;
 }
 
 .sidenav-footer .card.card-background:after {

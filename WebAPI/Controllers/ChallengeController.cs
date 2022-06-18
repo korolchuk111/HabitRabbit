@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Core.Interfaces.Services;
@@ -33,5 +34,21 @@ namespace WebAPI.Controllers
             await _challengeService.AddChallenge(createChallengeDto);
             return Ok();
         }
+        
+        [HttpPost("update")]
+        public async Task<ActionResult> UpdateChallenge(UpdateChallengeDTO updateChallengeDto)
+        {
+            await _challengeService.UpdateChallenge(updateChallengeDto);
+            return Ok();
+        }
+        
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteChallenge(CreateChallengeDTO createChallengeDto)
+        {
+            await _challengeService.DeleteChallenge(createChallengeDto);
+            return Ok();
+        }
+        
     }
 }
