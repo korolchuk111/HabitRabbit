@@ -1,6 +1,10 @@
 ﻿@layout MainLayout
 @page "/"
+@using Client.Infrastructure
+@using global::Shared.DailyTaskDTO
 @attribute [Authorize]
+
+@inject HttpDailyTaskService _dailyTaskService
 
 <AuthorizeView>
     <Authorized>
@@ -26,117 +30,111 @@
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ">Mark</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    @foreach (var  task in TasksForToday)
+                                    {
+                                        <tbody>
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2">
                                                     <div class="me-2">
-        
                                                     </div>
                                                     <div class="my-auto">
-                                                        <h6 class="mb-0 text-sm">Reading</h6>
+                                                        <h6 class="mb-0 text-sm">@task.ChallengeTitle</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="text-xs font-weight-bold">50</span>
+                                                <span class="text-xs font-weight-bold">@task.CountOfUnits</span>
                                             </td>
                                             <td>
-        
-                                                <span class="text-xs font-weight-bold">Pages</span>
-        
+                                                <span class="text-xs font-weight-bold">@task.UnitShortName</span>
                                             </td>
                                             <td>
-        
-                                                <span class="text-xs font-weight-bold">Every day</span>
-        
+                                                <span class="text-xs font-weight-bold">@task.FrequencyType</span>
                                             </td>
                                             <td class="align-middle">
                                                 <div class="d-flex align-items-center ">
-                                                    <span class="me-2 text-xs font-weight-bold">60%</span>
+                                                    <span class="me-2 text-xs font-weight-bold">@task.PercentOfDone%</span>
                                                     <div>
                                                         <div class="progress">
-                                                            <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-        
-                                         <td>
-                                                <span class="badge badge-sm bg-gradient-secondary">Undone</span>
-                                            </td> 
-                                            <td class="align-middle">
-                                                <div class="">
-                                                    <button type="button" class="btn bg-gradient-primary  mx-auto">Done</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-        
-        
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2">
-                                                    <div class="me-2">
-        
-                                                    </div>
-                                                    <div class="my-auto">
-                                                        <h6 class="mb-0 text-sm">Running</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-xs font-weight-bold">10</span>
-                                            </td>
-                                            <td>
-        
-                                                <span class="text-xs font-weight-bold">Km</span>
-        
-                                            </td>
-                                            <td>
-        
-                                                <span class="text-xs font-weight-bold">Every day</span>
-        
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="d-flex align-items-center ">
-                                                    <span class="me-2 text-xs font-weight-bold">100%</span>
-                                                    <div>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                                            <div class="progress-bar bg-gradient-info"
+                                                                 role="progressbar"
+                                                                 aria-valuemin="0"
+                                                                 aria-valuemax="100"
+                                                                 style="width: @task.PercentOfDone%;">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-gradient-success">Done</span>
+                                                @if (task.IsDone)
+                                                {
+                                                    <span class="badge badge-sm bg-gradient-success">Done</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-sm bg-gradient-secondary">Undone</span>
+                                                }
                                             </td>
                                             <td class="align-middle">
-                                                <div class="">
-                                                    <!-- <button type="button" class="btn bg-gradient-info w-50 mt-0 mb-0 mx-auto">Done</button> -->
-                                                    <button type="button" class="btn bg-gradient-primary  mx-auto">Done</button>
-                                                </div>
+                                                @if (task.UnitShortName.Equals("times") && task.CountOfUnits > 1)
+                                                {
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="button" class="btn bg-gradient-primary mx-auto">
+                                                            <i class="ni ni-fat-add"></i>
+                                                            <span>Add progress</span>
+                                                        </button>
+                                                    </div>
+                                                }
+                                                else if (task.CountOfUnits > 1)
+                                                {
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="button" class="btn bg-gradient-primary mx-auto">
+                                                            <i class="ni ni-fat-add"></i>
+                                                            <span>Add progress</span>
+                                                        </button>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="button" class="btn bg-gradient-primary mx-auto">
+                                                            Done
+                                                        </button>
+                                                    </div>
+                                                }
                                             </td>
                                         </tr>
-        
-        
-                                    </tbody>
+                                        </tbody>
+                                    }
                                 </table>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </Authorized>
-    @*<NotAuthorized>
-        <RedirectToLogin />
-    </NotAuthorized>*@
 </AuthorizeView>
 
 @code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+
+    List<DailyTaskDTO> TasksForToday { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateTask;
+        var userName = authState.User.Identity.Name;
+        var tasksFromDb = await _dailyTaskService.GetAllTasksForToday(userName);
+        foreach (var task in tasksFromDb)
+        {
+            Console.WriteLine(task.ChallengeTitle);
+        }
+        TasksForToday = tasksFromDb.ToList();
+    }
 
 }
