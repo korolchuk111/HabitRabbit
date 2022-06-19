@@ -13,8 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37270f76-304e-42f7-98fc-8f83959c93f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BlazorWebApp/wwwroot/softUI/assets/img/angry.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebApp/wwwroot/softUI/assets/img/good.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Progress.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Progress.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/Nav1.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/Nav1.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/UserLine.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/UserLine.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +231,7 @@
       <workItem from="1655563817485" duration="3051000" />
       <workItem from="1655651305715" duration="7186000" />
       <workItem from="1655661403252" duration="4074000" />
-      <workItem from="1655670669541" duration="1068000" />
+      <workItem from="1655670669541" duration="2582000" />
     </task>
     <task id="LOCAL-00001" summary="authorization endpoint">
       <created>1654877065809</created>
