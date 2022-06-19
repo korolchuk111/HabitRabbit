@@ -13,31 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37270f76-304e-42f7-98fc-8f83959c93f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Core/Profiles/DailyTaskProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAPI/Controllers/DailyTaskController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/Nav1.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorWebApp/wwwroot/softUI/assets/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/Shared/ChallengeDTO/UpdateChallengeDTO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HabitRabbit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Interfaces/Services/IDailyTaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IDailyTaskService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/ServiceExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Habit.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Habit.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebApp/Pages/Progress.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Pages/Progress.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/HabbitsAdd.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/HabbitsAdd.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/Shared/NavMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebApp/wwwroot/softUI/assets/css/soft-ui-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebApp/wwwroot/softUI/assets/css/soft-ui-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Interfaces/Services/IChallengeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Interfaces/Services/IChallengeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Profiles/ChallengeProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Profiles/ChallengeProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Services/ChallengeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/ChallengeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Services/DailyTaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/DailyTaskService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Shared/ChallengeDTO/CreateChallengeDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Shared/ChallengeDTO/CreateChallengeDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Shared/DailyTaskDTO/DailyTaskDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Shared/DailyTaskDTO/DailyTaskDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/Controllers/ChallengeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Controllers/ChallengeController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,29 +38,33 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2499c1873f584d02976265b79bf3f7a11bbf90/11A/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Services/AuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2499c1873f584d02976265b79bf3f7a11bbf90/38/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Services/FrequencyService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/Shared/ChallengeDTO/CreateChallengeDTO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Services/DailyTaskService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Services/UnitService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ed9b37a02174158b69287ee541e01418f5d90/2C4/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Services/FrequencyService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Profiles/UserProfile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Interfaces/Services/IUnitService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2af8d53e34a498c877939061bca11bcf9600/ab/7644745f/DatePicker`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpAuthorizationService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Client.Infrastructure/HttpAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpBaseService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Interfaces/Services/IAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/HttpClient/HttpAuthorizationService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Services/ChallengeService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Profiles/UserProfile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Interfaces/Services/IAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Services/UnitService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Core/Interfaces/Services/IUnitService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BlazorWebApp/obj/Debug/net5.0/RazorDeclaration/Pages/Progress.razor.g.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2A6rDAgHHWYcBCqLw5lvHdrOn3e" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -245,6 +226,9 @@
       <workItem from="1655550697996" duration="1627000" />
       <workItem from="1655552508075" duration="934000" />
       <workItem from="1655563817485" duration="3051000" />
+      <workItem from="1655651305715" duration="7186000" />
+      <workItem from="1655661403252" duration="4074000" />
+      <workItem from="1655670669541" duration="1068000" />
     </task>
     <task id="LOCAL-00001" summary="authorization endpoint">
       <created>1654877065809</created>
@@ -300,7 +284,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
