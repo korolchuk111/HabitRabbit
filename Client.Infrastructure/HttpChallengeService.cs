@@ -5,6 +5,8 @@ using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Shared.ChallengeDTO;
+using Shared.FrequencyDTo;
+using Shared.UnitDTO;
 
 namespace Client.Infrastructure
 {
@@ -18,9 +20,44 @@ namespace Client.Infrastructure
             {
                 var response = await HttpClient.GetFromJsonAsync<IList<ChallengeDTO>>
                     ($"api/challenge?userName={userName}");
-                foreach (var challenge in response)
+                return response;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        
+        public async Task CreateChallenge(CreateChallengeDTO challenge)
+        {
+            await HttpClient.PostAsJsonAsync("api/challenge/create", challenge);
+        }
+
+        public async Task<IList<UnitDTO>?> GetUnits()
+        {
+            try
+            {
+                var response = await HttpClient.GetFromJsonAsync<IList<UnitDTO>>("api/unit");
+                foreach (var unit in response)
                 {
-                    Console.WriteLine(challenge.Title);
+                    Console.WriteLine(unit.Type);
+                }
+                return response;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        
+        public async Task<IList<FrequencyDTO>?> GetFrequency()
+        {
+            try
+            {
+                var response = await HttpClient.GetFromJsonAsync<IList<FrequencyDTO>>("api/frequency");
+                foreach (var unit in response)
+                {
+                    Console.WriteLine(unit.Type);
                 }
                 return response;
             }

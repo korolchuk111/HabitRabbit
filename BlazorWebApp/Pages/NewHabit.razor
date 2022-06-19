@@ -1,6 +1,12 @@
 ﻿@layout MainLayout
 @page "/addhabit"
+@using global::Shared.UnitDTO
+@using Client.Infrastructure
+@using global::Shared.ChallengeDTO
+@using global::Shared.FrequencyDTo
 @attribute [Authorize]
+
+@inject HttpChallengeService _challengeService
 
 <AuthorizeView>
     <Authorized>
@@ -10,57 +16,58 @@
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12 col-xl-6 mx-auto">
+                    <h5>New Habbit</h5>
                     <div class="card h-100">
                         <div class="card-body">
                             <form role="form">
                                 <div class="mb-3">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="email-addon">
+                                    <input type="text" class="form-control" placeholder="Name" 
+                                           aria-label="Name" aria-describedby="email-addon" maxlength="25"
+                                           @bind-value="@Challenge.Title">
                                 </div>
-                                <div class="mb-3">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Unit</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input class="form-control" type="number" @bind-value="@Challenge.CountOfUnits">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-control" @onchange="SelectedUnit">
+                                            @foreach (var unit in Units)
+                                            {
+                                                <option value="@unit.Id">@unit.Type</option>
+                                            }
                                         </select>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="form-group">
-                                        <label for="example-number-input" class="form-control-label">Amount</label>
-                                        <input class="form-control" type="number" value="23" id="example-number-input">
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Frequency</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                    <div class="col-md-4">
+                                        <select class="form-control" @onchange="SelectedFrequency">
+                                            @foreach (var frequency in Frequency)
+                                            {
+                                                <option value="@frequency.Id">@frequency.Type</option>
+                                            }
                                         </select>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="form-group">
-                                            <label for="example-date-input" class="form-control-label">Start Date</label>
-                                            <input class="form-control" type="date" value="2018-11-23" id="example-date-input">
+                                            <label class="form-control-label">Start Date</label>
+                                            <input class="form-control" type="date"
+                                                   @bind-value="@Challenge.StartDate">
                                         </div>
                                         <div class="form-group">
-                                            <label for="example-date-input" class="form-control-label">End Date</label>
-                                            <input class="form-control" type="date" value="2018-11-23" id="example-date-input">
+                                            <label class="form-control-label">End Date</label>
+                                            <input class="form-control" type="date"
+                                                   @bind-value="@Challenge.EndDate">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" class="btn bg-gradient-info w-40 mt-4 mb-0 mx-0">Save</button>
+                                    <button type="button"
+                                            class="btn bg-gradient-info w-40 mt-4 mb-0 mx-0"
+                                            @onclick="CreateChallenge"
+                                    >
+                                        Save
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -73,5 +80,49 @@
 </AuthorizeView>
 
 @code{
-  
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+    
+    IList<UnitDTO> Units { get; set; } = new List<UnitDTO>();
+    IList<FrequencyDTO> Frequency { get; set; } = new List<FrequencyDTO>();
+    CreateChallengeDTO Challenge { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Units = await _challengeService.GetUnits();
+        Frequency = await _challengeService.GetFrequency();
+        Challenge.CountOfUnits = 1;
+        Challenge.UnitId = Units.First().Id;
+        Challenge.FrequencyId = Frequency.First().Id;
+        Challenge.StartDate = DateTime.Now;
+        Challenge.EndDate = DateTime.Now.AddDays(21);
+    }
+    
+    private async Task CreateChallenge()
+    {
+        var authState = await AuthenticationStateTask;
+        var userName = authState.User.Identity.Name;
+        var createChallengeDto = new CreateChallengeDTO
+        {
+            AuthorName = userName,
+            Title = Challenge.Title,
+            CountOfUnits = Challenge.CountOfUnits,
+            UnitId = Challenge.UnitId,
+            FrequencyId = Challenge.FrequencyId,
+            StartDate = Challenge.StartDate,
+            EndDate = Challenge.EndDate
+        };
+        await _challengeService.CreateChallenge(createChallengeDto);
+    }
+    
+    private void SelectedUnit(ChangeEventArgs e)
+    {
+        Challenge.UnitId = int.Parse(e.Value.ToString());
+    }
+    
+    private void SelectedFrequency(ChangeEventArgs e)
+    {
+        Challenge.FrequencyId = int.Parse(e.Value.ToString());
+    }
+    }
 }
