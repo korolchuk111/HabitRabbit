@@ -80,24 +80,28 @@
                                             <td class="align-middle">
                                                 @if (task.UnitShortName.Equals("times") && task.CountOfUnits > 1)
                                                 {
-                                                    <div class="">
+                                                    <div class="d-flex align-items-center">
                                                         <button type="button" class="btn bg-gradient-primary mx-auto">
                                                             <i class="ni ni-fat-add"></i>
+                                                            <span>Add progress</span>
                                                         </button>
                                                     </div>
                                                 }
                                                 else if (task.CountOfUnits > 1)
                                                 {
-                                                    <div class="">
-                                                        <button type="button" class="btn bg-gradient-info w-50 mt-0 mb-0 mx-auto">
-                                                            Add progress
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="button" class="btn bg-gradient-primary mx-auto">
+                                                            <i class="ni ni-fat-add"></i>
+                                                            <span>Add progress</span>
                                                         </button>
                                                     </div>
                                                 }
                                                 else
                                                 {
-                                                    <div class="">
-                                                        <button type="button" class="btn bg-gradient-info w-50 mt-0 mb-0 mx-auto">Done</button>
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="button" class="btn bg-gradient-primary mx-auto">
+                                                            Done
+                                                        </button>
                                                     </div>
                                                 }
                                             </td>
