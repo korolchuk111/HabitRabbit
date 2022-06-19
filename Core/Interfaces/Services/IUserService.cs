@@ -7,5 +7,6 @@ namespace Core.Interfaces.Services
     public interface IUserService
     {
         UserDTO GetUserByName(string userName);
+        Task UpdateUserInfo(UpdateUserDTO updateUserDto);
     }
 }
