@@ -12,8 +12,10 @@ namespace Core.Interfaces
         Task<TEntity> GetByIdAsync<TKey>(TKey id);
         Task<TEntity> AddAsync(TEntity entity);
         Task DeleteAsync(TEntity entityToDelete);
+        Task DeleteRange(IEnumerable<TEntity> entitiesToDelete);
         Task UpdateAsync(TEntity entityToUpdate);
         Task<int> SaveChangesAsync();
         IQueryable<TEntity> Query(params Expression<Func<TEntity, object>>[] includes);
+        
     }
 }

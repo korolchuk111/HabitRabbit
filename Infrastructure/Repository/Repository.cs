@@ -32,6 +32,10 @@ namespace Infrastructure.Repository
             });
         }
 
+        public async Task DeleteRange(IEnumerable<TEntity> entitiesToDelete)
+        {
+            _dbSet.RemoveRange(entitiesToDelete);
+        }
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();

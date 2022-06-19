@@ -38,5 +38,12 @@ namespace WebAPI.Controllers
             await _userService.UpdateUserInfo(updateUserDto);
             return Ok();
         }
+
+        [HttpPost("delete")]
+        public async Task<ActionResult> DeleteUser(string userName)
+        {
+            await _userService.DeleteUser(userName);
+            return Ok();
+        }
     }
 }

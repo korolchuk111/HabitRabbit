@@ -43,7 +43,7 @@ namespace WebAPI.Controllers
         }
         
 
-        [HttpDelete]
+        [HttpPost ("delete")]
         public async Task<ActionResult> DeleteChallenge(CreateChallengeDTO createChallengeDto)
         {
             await _challengeService.DeleteChallenge(createChallengeDto);

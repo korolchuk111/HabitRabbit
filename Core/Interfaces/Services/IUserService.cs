@@ -8,5 +8,7 @@ namespace Core.Interfaces.Services
     {
         UserDTO GetUserByName(string userName);
         Task UpdateUserInfo(UpdateUserDTO updateUserDto);
+        Task DeleteUser(string userName);
+        
     }
 }
