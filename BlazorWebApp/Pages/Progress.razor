@@ -83,23 +83,23 @@
                                                 <div class="">
                                                     @if (task.UnitShortName.Equals("times") && task.CountOfUnits > 1)
                                                     {
-                                                        <button type="button" class="btn bg-gradient-primary mb-0 mt-0 mx-auto">
+                                                        <button type="button" class="btn btn-outline-primary mb-0 mt-0 mx-auto">
                                                             <i class="ni ni-fat-add"></i>
                                                             <span>Add progress</span>
                                                         </button>
                                                     }
                                                     else if (task.CountOfUnits > 1)
                                                     {
-                                                        <button type="button" class="btn bg-gradient-primary mb-0 mt-0 mx-auto">
+                                                        <button type="button" class="btn btn-outline-primary mb-0 mt-0 mx-auto">
                                                             <i class="ni ni-fat-add"></i>
                                                             <span>Add progress</span>
                                                         </button>
                                                     }
                                                     else
                                                     {
-                                                        <button type="button" class="btn bg-gradient-primary mb-0 mt-0 mx-auto">
+                                                        <button type="button" class="btn btn-outline-primary mb-0 mt-0 mx-auto">
                                                             <i class="ni ni-check-bold"></i>
-                                                            <span>Mark Done</span>
+                                                            <span>Mark As Done</span>
                                                         </button>
                                                     }
                                                 </div>
@@ -111,85 +111,88 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card mb-4">
-                        <div class="card-body px-0 pt-0 pb-2">
-                            <div class="table-responsive p-0">
-                                <div class="card-header pb-0">
-                                    <span class="badge badge-sm bg-gradient-success">
-                                        Done
-                                    </span>
-                                </div>
-                                <table class="table align-items-center justify-content-center mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 w-20">Habit</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Amount</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Unit</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Frequency</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Completion</th>
-                                        @* <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> *@
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  "></th>
-                                    </tr>
-                                    </thead>
-                                    @foreach (var  task in TasksForToday.Where(t => t.IsDone))
-                                    {
-                                        <tbody>
+                    @if (IsThereDoneTasks)
+                    {
+                        <div class="card mb-4">
+                            <div class="card-body px-0 pt-0 pb-2">
+                                <div class="table-responsive p-0">
+                                    <div class="card-header pb-0">
+                                        <span class="badge badge-sm bg-gradient-success">
+                                            Done
+                                        </span>
+                                    </div>
+                                    <table class="table align-items-center justify-content-center mb-0">
+                                        <thead>
                                         <tr>
-                                            <td>
-                                                <div class="d-flex px-2">
-                                                    <div class="me-2">
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 w-20">Habit</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Amount</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Unit</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Frequency</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Completion</th>
+                                            @* <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> *@
+                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  "></th>
+                                        </tr>
+                                        </thead>
+                                        @foreach (var  task in TasksForToday.Where(t => t.IsDone))
+                                        {
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2">
+                                                        <div class="me-2">
+                                                        </div>
+                                                        <div class="my-auto">
+                                                            <h6 class="mb-0 text-sm">@task.ChallengeTitle</h6>
+                                                        </div>
                                                     </div>
-                                                    <div class="my-auto">
-                                                        <h6 class="mb-0 text-sm">@task.ChallengeTitle</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-xs font-weight-bold">@task.CountOfUnits</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-xs font-weight-bold">@task.UnitShortName</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-xs font-weight-bold">@task.FrequencyType</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="d-flex align-items-center ">
-                                                    <span class="me-2 text-xs font-weight-bold">
-                                                        @task.CountOfUnitsDone/@task.CountOfUnits
-                                                    </span>
-                                                    <div>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-gradient-info"
-                                                                 role="progressbar"
-                                                                 aria-valuemin="0"
-                                                                 aria-valuemax="100"
-                                                                 style="width: @task.PercentOfDone%;">
+                                                </td>
+                                                <td>
+                                                    <span class="text-xs font-weight-bold">@task.CountOfUnits</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-xs font-weight-bold">@task.UnitShortName</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-xs font-weight-bold">@task.FrequencyType</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <div class="d-flex align-items-center ">
+                                                        <span class="me-2 text-xs font-weight-bold">
+                                                            @task.CountOfUnitsDone/@task.CountOfUnits
+                                                        </span>
+                                                        <div>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-info"
+                                                                     role="progressbar"
+                                                                     aria-valuemin="0"
+                                                                     aria-valuemax="100"
+                                                                     style="width: @task.PercentOfDone%;">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            @* <td class="text-center"> *@
-                                            @*     <span class="badge badge-sm bg-gradient-success"> *@
-                                            @*         Done *@
-                                            @*     </span> *@
-                                            @* </td> *@
-                                            <td class="text-center">
-                                                <div class="">
-                                                    <button type="button" class="btn bg-gradient-dark mb-0 mt-0 mx-auto">
-                                                        <i class="ni ni-curved-next"></i>
-                                                        <span>Undone</span>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    }
-                                </table>
+                                                </td>
+                                                @* <td class="text-center"> *@
+                                                @*     <span class="badge badge-sm bg-gradient-success"> *@
+                                                @*         Done *@
+                                                @*     </span> *@
+                                                @* </td> *@
+                                                <td class="text-center">
+                                                    <div class="">
+                                                        <button type="button" class="btn bg-gradient-dark mb-0 mt-0 mx-auto">
+                                                            <i class="ni ni-curved-next"></i>
+                                                            <span>Undone</span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        }
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
