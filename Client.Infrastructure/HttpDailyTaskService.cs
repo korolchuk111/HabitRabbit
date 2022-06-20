@@ -30,5 +30,10 @@ namespace Client.Infrastructure
         {
             await HttpClient.PostAsJsonAsync("api/DailyTask/add-progress", addProgressDto);
         }
+        
+        public async Task RemoveProgress(int taskId)
+        {
+            await HttpClient.PostAsJsonAsync("api/DailyTask/remove-progress", taskId);
+        }
     }
 }

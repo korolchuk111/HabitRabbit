@@ -27,6 +27,7 @@ namespace BlazorWebApp
             builder.Services.AddScoped<HttpAuthorizationService>();
             builder.Services.AddScoped<HttpChallengeService>();
             builder.Services.AddScoped<HttpDailyTaskService>();
+            builder.Services.AddScoped<HttpUserService>();
             builder.Services.AddBlazoredLocalStorage();
             
             await builder.Build().RunAsync();

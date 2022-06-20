@@ -1,7 +1,11 @@
 ﻿@layout MainLayout
 @page "/user"
-@inject NavigationManager NavigationManager
+@using global::Shared.UserDTO
+@using Client.Infrastructure
 @attribute [Authorize]
+
+@inject NavigationManager _navigationManager
+@inject HttpUserService _userService
 
 <AuthorizeView>
     <Authorized>
@@ -29,9 +33,9 @@
                             </p>
                             <hr class="horizontal gray-light my-4">
                             <ul class="list-group">
-                                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Username:</strong> &nbsp; Alec M. Thompson</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Password:</strong> &nbsp; *****</li>
+                                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Username:</strong> &nbsp; @CurrentUser.UserName</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; @CurrentUser.Email</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Password:</strong> &nbsp; ****</li>
                             </ul>
                         </div>
                     </div>
@@ -43,5 +47,16 @@
 </AuthorizeView>
 
 @code {
-
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+    
+    UserDTO CurrentUser { get; set; } = new();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateTask;
+        var userName = authState.User.Identity.Name;
+        CurrentUser = await _userService.GetUser(userName);
+        
+    }
 }

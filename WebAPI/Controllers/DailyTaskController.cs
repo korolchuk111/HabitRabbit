@@ -33,5 +33,11 @@ namespace WebAPI.Controllers
             await _dailyTaskService.AddProgress(addProgressDto);
             return Ok();
         }
+        
+        [HttpPost("remove-progress")]
+        public async Task RemoveProgress(int taskId)
+        {
+            await _dailyTaskService.RemoveProgress(taskId);
+        }
     }
 }

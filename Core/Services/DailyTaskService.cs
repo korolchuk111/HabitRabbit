@@ -69,5 +69,15 @@ namespace Core.Services
             await _dailyTaskRepository.DeleteRange(tasks);
             // await _dailyTaskRepository.SaveChangesAsync();
         }
+
+        public async Task RemoveProgress(int taskId)
+        {
+            var task = await _dailyTaskRepository.GetByIdAsync(taskId);
+            task.CountOfUnitsDone = 0;
+            task.PercentOfDone = 0;
+            task.IsDone = false;
+            await _dailyTaskRepository.UpdateAsync(task);
+            await _dailyTaskRepository.SaveChangesAsync();
+        }
     }
 }

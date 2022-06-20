@@ -216,7 +216,7 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="">
-                                            <button type="button" class="btn bg-gradient-dark mb-0 mt-0 mx-auto">
+                                            <button type="button" @onclick="() => RemoveProgress(task.Id)" class="btn bg-gradient-dark mb-0 mt-0 mx-auto">
                                                 <i class="ni ni-curved-next"></i>
                                                 <span>Undone</span>
                                             </button>
@@ -274,6 +274,14 @@
             ProgressToAdd = countOfUnitsAdd
         };
         await _dailyTaskService.AddProgress(addProgressDto);
+        await GetAllTasks();
+        AddCountOfUnits = 1;
+    }
+    
+    private async Task RemoveProgress(int taskId)
+    {
+        Console.WriteLine(taskId);
+        await _dailyTaskService.RemoveProgress(taskId);
         await GetAllTasks();
         AddCountOfUnits = 1;
     }

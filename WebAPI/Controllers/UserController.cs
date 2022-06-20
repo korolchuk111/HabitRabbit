@@ -24,13 +24,12 @@ namespace WebAPI.Controllers
             _userService = userService;
         }
 
-        // [HttpGet]
-        // public async Task<ActionResult> GetCurrentUser()
-        // {
-        //     var claims = _contextAccessor.HttpContext.User;
-        //     var user = await _userManager.GetUserAsync(claims);
-        //     return Ok(user);
-        // }
+        [HttpGet]
+        public ActionResult<UserDTO> GetCurrentUser(string userName)
+        {
+            var user = _userService.GetUserByName(userName);
+            return Ok(user);
+        }
 
         [HttpPost ("update")]
         public async Task<ActionResult> UpdateUserInfo(UpdateUserDTO updateUserDto)
