@@ -9,6 +9,7 @@ namespace Core.Interfaces.Services
         Task<IList<ChallengeDTO>> GetAllChallengesByUser(string userId);
         Task AddChallenge(CreateChallengeDTO createChallengeDto);
         Task UpdateChallenge(UpdateChallengeDTO updateChallengeDto);
-        Task DeleteChallenge(CreateChallengeDTO createChallengeDto);
+        Task DeleteChallenge(int challengeId);
+        Task<ChallengeDTO> GetChallengeById(int challengeId);
     }
 }

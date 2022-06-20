@@ -25,5 +25,10 @@ namespace Client.Infrastructure
                 return new List<DailyTaskDTO>();
             }
         }
+
+        public async Task AddProgress(AddProgressDTO addProgressDto)
+        {
+            await HttpClient.PostAsJsonAsync("api/DailyTask/add-progress", addProgressDto);
+        }
     }
 }

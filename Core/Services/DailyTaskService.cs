@@ -46,5 +46,28 @@ namespace Core.Services
             }
             return tasks.Select(task => _mapper.Map<DailyTaskDTO>(task)).ToList();
         }
+        
+        public async Task AddProgress(AddProgressDTO addProgressDto)
+        {
+            var task = await _dailyTaskRepository.GetByIdAsync(addProgressDto.DailyTaskId);
+            var sum = task.CountOfUnitsDone + addProgressDto.ProgressToAdd;
+            if (sum > addProgressDto.CountOfUnits) { return; }
+            task.CountOfUnitsDone += addProgressDto.ProgressToAdd;
+            task.PercentOfDone = (int)((double)task.CountOfUnitsDone / addProgressDto.CountOfUnits*100);
+            if (sum == addProgressDto.CountOfUnits)
+            {
+                task.IsDone = true;
+            }
+            await _dailyTaskRepository.UpdateAsync(task);
+            await _dailyTaskRepository.SaveChangesAsync();
+        }
+        
+        public async Task DeleteAllTasksByChallenge(int challengeId)
+        {
+            var tasks = await _dailyTaskRepository.Query()
+                .Where(t => t.ChallengeId == challengeId).ToListAsync();
+            await _dailyTaskRepository.DeleteRange(tasks);
+            // await _dailyTaskRepository.SaveChangesAsync();
+        }
     }
 }

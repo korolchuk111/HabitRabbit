@@ -9,6 +9,7 @@ namespace Shared.ChallengeDTO
         public string Title { get; set; }
         public int CountOfUnits { get; set; }
         public string UnitShortTitle { get; set; }
+        public string UnitTitle { get; set; }
         public string FrequencyTitle { get; set; }
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }

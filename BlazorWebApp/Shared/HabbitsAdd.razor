@@ -39,7 +39,7 @@
                                     </div>
                                     <br/>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <NavLink class="nav-link" href="habit">
+                                        <NavLink class="nav-link" @onclick="() => ViewChallenge(challenge.Id)">
                                         <button type="button" class="btn btn-outline-primary btn-sm mb-0">View details</button>
                                         </NavLink>
                                     </div>
@@ -100,5 +100,10 @@
         }
         challengesPerRow.Add(row);
         ChallengesPerRow = challengesPerRow;
+    }
+    
+    private void ViewChallenge(int challengeId)
+    {
+        _navigationManager.NavigateTo($"habit/{challengeId}");
     }
 }

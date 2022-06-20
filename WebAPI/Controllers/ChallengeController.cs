@@ -27,6 +27,13 @@ namespace WebAPI.Controllers
             var challenges = await _challengeService.GetAllChallengesByUser(user.Id);
             return Ok(challenges);
         }
+        
+        [HttpGet("{id:int}")]
+        public async Task<ChallengeDTO> GetChallengeById(int id)
+        {
+            var challenge = await _challengeService.GetChallengeById(id);
+            return challenge;
+        }
 
         [HttpPost("create")]
         public async Task<ActionResult> AddChallenge(CreateChallengeDTO createChallengeDto)
@@ -43,10 +50,10 @@ namespace WebAPI.Controllers
         }
         
 
-        [HttpPost ("delete")]
-        public async Task<ActionResult> DeleteChallenge(CreateChallengeDTO createChallengeDto)
+        [HttpDelete("delete")]
+        public async Task<ActionResult> DeleteChallenge(int challengeId)
         {
-            await _challengeService.DeleteChallenge(createChallengeDto);
+            await _challengeService.DeleteChallenge(challengeId);
             return Ok();
         }
         

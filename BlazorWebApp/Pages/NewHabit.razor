@@ -7,11 +7,12 @@
 @attribute [Authorize]
 
 @inject HttpChallengeService _challengeService
+@inject NavigationManager _navigationManager
 
 <AuthorizeView>
     <Authorized>
         <div class="container-fluid">
-            <UserLine />
+            <UserLine/>
         </div>
         <div class="container-fluid py-4">
             <div class="row">
@@ -22,7 +23,7 @@
                             <form role="form">
                                 <div class="mb-3">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" placeholder="Name" 
+                                    <input type="text" class="form-control" placeholder="Name"
                                            aria-label="Name" aria-describedby="email-addon" maxlength="25"
                                            @bind-value="@Challenge.Title">
                                 </div>
@@ -64,8 +65,7 @@
                                 <div class="text-center">
                                     <button type="button"
                                             class="btn bg-gradient-info w-40 mt-4 mb-0 mx-0"
-                                            @onclick="CreateChallenge"
-                                    >
+                                            @onclick="CreateChallenge">
                                         Save
                                     </button>
                                 </div>
@@ -76,13 +76,14 @@
             </div>
         </div>
     </Authorized>
- 
+
 </AuthorizeView>
 
 @code{
+
     [CascadingParameter]
     private Task<AuthenticationState> AuthenticationStateTask { get; set; }
-    
+
     IList<UnitDTO> Units { get; set; } = new List<UnitDTO>();
     IList<FrequencyDTO> Frequency { get; set; } = new List<FrequencyDTO>();
     CreateChallengeDTO Challenge { get; set; } = new();
@@ -97,7 +98,7 @@
         Challenge.StartDate = DateTime.Now;
         Challenge.EndDate = DateTime.Now.AddDays(21);
     }
-    
+
     private async Task CreateChallenge()
     {
         var authState = await AuthenticationStateTask;
@@ -113,16 +114,16 @@
             EndDate = Challenge.EndDate
         };
         await _challengeService.CreateChallenge(createChallengeDto);
+        _navigationManager.NavigateTo("/habits");
     }
-    
+
     private void SelectedUnit(ChangeEventArgs e)
     {
         Challenge.UnitId = int.Parse(e.Value.ToString());
     }
-    
+
     private void SelectedFrequency(ChangeEventArgs e)
     {
         Challenge.FrequencyId = int.Parse(e.Value.ToString());
-    }
     }
 }

@@ -80,13 +80,25 @@ namespace Core.Services
             await _challengeRepository.SaveChangesAsync();
         }
 
-        public async Task DeleteChallenge(CreateChallengeDTO createChallengeDto)
+        public async Task DeleteChallenge(int challengeId)
         {
-            var user = _userService.GetUserByName(createChallengeDto.AuthorName);
-            var challenge = _mapper.Map<Challenge>(createChallengeDto);
-            challenge.AuthorId = user.Id;
+            var challenge = await _challengeRepository.GetByIdAsync(challengeId);
+            var tasks = await _dailyTaskRepository.Query()
+                .Where(t => t.ChallengeId == challengeId).ToListAsync();
+            await _dailyTaskRepository.DeleteRange(tasks);
             await _challengeRepository.DeleteAsync(challenge);
             await _challengeRepository.SaveChangesAsync();
+        }
+        
+        public async Task<ChallengeDTO> GetChallengeById(int challengeId)
+        {
+            var challenge = await _challengeRepository.Query()
+                .Where(c => c.Id == challengeId)
+                .Include(ch => ch.Frequency)
+                .Include(ch => ch.Unit)
+                .Include(ch => ch.Author)
+                .FirstOrDefaultAsync();
+            return _mapper.Map<ChallengeDTO>(challenge);
         }
     }
 }

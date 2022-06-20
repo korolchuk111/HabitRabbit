@@ -10,13 +10,13 @@
     <Authorized>
     <UserLine/>
     <div class="container-fluid py-4">
-    <div class="row">
-            <div class="col-12 d-flex justify-content-center mb-2">
-                <button type="button" class="btn bg-gradient-primary btn-lg">Day</button>
-                <button type="button" class="btn bg-gradient-primary btn-lg">Week</button>
-                <button type="button" class="btn bg-gradient-primary btn-lg">Month</button>
-            </div>
-     </div>
+    @* <div class="row"> *@
+    @*         <div class="col-12 d-flex justify-content-center mb-2"> *@
+    @*             <button type="button" class="btn bg-gradient-primary btn-lg">Day</button> *@
+    @*             <button type="button" class="btn bg-gradient-primary btn-lg">Week</button> *@
+    @*             <button type="button" class="btn bg-gradient-primary btn-lg">Month</button> *@
+    @*         </div> *@
+    @*  </div> *@
         <div class="row">
         <div class="col-12">
         <div class="card mb-4">
@@ -33,7 +33,6 @@
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Unit</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Frequency</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Completion</th>
-                            @* <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> *@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  "></th>
                         </tr>
                         </thead>
@@ -76,21 +75,13 @@
                                         </div>
                                     </div>
                                 </td>
-                                @* <td class="text-center"> *@
-                                @*     @if (task.IsDone) *@
-                                @*     { *@
-                                @*         <span class="badge badge-sm bg-gradient-success">Done</span> *@
-                                @*     } *@
-                                @*     else *@
-                                @*     { *@
-                                @*         <span class="badge badge-sm bg-gradient-secondary">Undone</span> *@
-                                @*     } *@
-                                @* </td> *@
                                 <td class="text-center">
                                     <div class="">
-                                        @if (task.UnitShortName.Equals("times") && task.CountOfUnits > 1)
+                                        @if (task.UnitShortName.Equals("times") && task.CountOfUnits is > 1 and <= 10)
                                         {
-                                            <button type="button" class="btn btn-outline-primary mb-0 mt-0 mx-auto">
+                                            <button type="button" 
+                                                    @onclick="() => AddProgress(task.Id, task.CountOfUnits, 1)" 
+                                                    class="btn btn-outline-primary mb-0 mt-0 mx-auto">
                                                 <i class="ni ni-fat-add"></i>
                                                 <span>Add progress</span>
                                             </button>
@@ -104,8 +95,8 @@
                                             </button>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="exampleModalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal fade width-40" id="exampleModalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Add your progress!</h5>
@@ -115,29 +106,41 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <form>
-                                                                <div class="form-group text-start">
-                                                                    <label for="recipient-name" class="col-form-label">Amount:</label>
-                                                                    <input type="number" class="form-control" value="" id="recipient-name">
+                                                                <div class="form-group text-start col-7">
+                                                                    <label class="col-form-label">Amount:</label>
+                                                                    <div class="row d-flex align-items-center justify-content-center">
+                                                                        <div class="col-8">
+                                                                            <input type="number" class="form-control"
+                                                                                   @bind-value="@AddCountOfUnits">
+                                                                        </div>
+                                                                        <div class="col-2 mt-0 mb-0">
+                                                                            <span>
+                                                                                / @(task.CountOfUnits - task.CountOfUnitsDone) @task.UnitName
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </form>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn bg-gradient-primary">Save</button>
+                                                            <button type="button"
+                                                                    class="btn bg-gradient-primary"
+                                                                    @onclick="() => AddProgress(task.Id, task.CountOfUnits, AddCountOfUnits)"
+                                                                    data-bs-dismiss="modal"
+                                                            >
+                                                                Save
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                                        @*<button type="button" class="btn btn-outline-primary mb-0 mt-0 mx-auto">
-                                                            <i class="ni ni-fat-add"></i>
-                                                            <span>Add progress</span>
-                                                        </button>*@
                                         }
                                         else
                                         {
-                                            <button type="button" class="btn btn-outline-primary mb-0 mt-0 mx-auto">
+                                            <button type="button" 
+                                                    @onclick="() => AddProgress(task.Id, task.CountOfUnits, 1)"
+                                                    class="btn btn-outline-primary mb-0 mt-0 mx-auto">
                                                 <i class="ni ni-check-bold"></i>
                                                 <span>Mark As Done</span>
                                             </button>
@@ -169,7 +172,6 @@
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Unit</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Frequency</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  ps-2">Completion</th>
-                                @* <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> *@
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7  "></th>
                             </tr>
                             </thead>
@@ -212,11 +214,6 @@
                                             </div>
                                         </div>
                                     </td>
-                                    @* <td class="text-center"> *@
-                                    @*     <span class="badge badge-sm bg-gradient-success"> *@
-                                    @*         Done *@
-                                    @*     </span> *@
-                                    @* </td> *@
                                     <td class="text-center">
                                         <div class="">
                                             <button type="button" class="btn bg-gradient-dark mb-0 mt-0 mx-auto">
@@ -245,8 +242,14 @@
 
     List<DailyTaskDTO> TasksForToday { get; set; } = new();
     bool IsThereDoneTasks { get; set; }
+    int AddCountOfUnits { get; set; } = 1;
 
     protected override async Task OnInitializedAsync()
+    {
+        await GetAllTasks();
+    }
+
+    private async Task GetAllTasks()
     {
         var authState = await AuthenticationStateTask;
         var userName = authState.User.Identity.Name;
@@ -262,4 +265,16 @@
         }
     }
 
+    private async Task AddProgress(int taskId, int countOfUnits, int countOfUnitsAdd)
+    {
+        var addProgressDto = new AddProgressDTO
+        {
+            DailyTaskId = taskId,
+            CountOfUnits = countOfUnits,
+            ProgressToAdd = countOfUnitsAdd
+        };
+        await _dailyTaskService.AddProgress(addProgressDto);
+        await GetAllTasks();
+        AddCountOfUnits = 1;
+    }
 }

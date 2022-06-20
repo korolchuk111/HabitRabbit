@@ -26,5 +26,12 @@ namespace WebAPI.Controllers
             var tasks = await _dailyTaskService.GetAllTasksForTodayByUser(user.Id);
             return Ok(tasks);
         }
+        
+        [HttpPost("add-progress")]
+        public async Task<ActionResult> AddProgress(AddProgressDTO addProgressDto)
+        {
+            await _dailyTaskService.AddProgress(addProgressDto);
+            return Ok();
+        }
     }
 }

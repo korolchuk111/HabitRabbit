@@ -17,7 +17,10 @@ namespace Core.Profiles
                         .MapFrom(task => task.Challenge.Unit.ShortType))
                 .ForMember(d => d.CountOfUnits,
                     opt => opt
-                        .MapFrom(task => task.Challenge.CountOfUnits));
+                        .MapFrom(task => task.Challenge.CountOfUnits))
+                .ForMember(d => d.UnitName,
+                    opt => opt
+                        .MapFrom(task => task.Challenge.Unit.Type));
         }
     }
 }

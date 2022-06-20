@@ -66,5 +66,23 @@ namespace Client.Infrastructure
                 return null;
             }
         }
+        
+        public async Task<ChallengeDTO> GetChallengeById(int id)
+        {
+            try
+            {
+                var response = await HttpClient.GetFromJsonAsync<ChallengeDTO>($"api/challenge/{id}");
+                return response;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        
+        public async Task DeleteChallenge(int id)
+        {
+            await HttpClient.DeleteAsync($"api/challenge/delete?challengeId={id}");
+        }
     }
 }

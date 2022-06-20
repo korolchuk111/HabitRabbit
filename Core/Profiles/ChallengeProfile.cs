@@ -17,7 +17,11 @@ namespace Core.Profiles
                         .MapFrom(ch => ch.Frequency.Type))
                 .ForMember(d => d.UnitShortTitle,
                     opt => opt
-                        .MapFrom(ch => ch.Unit.ShortType));
+                        .MapFrom(ch => ch.Unit.ShortType))
+                .ForMember(d => d.UnitTitle,
+                    opt => opt
+                        .MapFrom(ch => ch.Unit.Type))
+                .ReverseMap();
             CreateMap<CreateChallengeDTO, Challenge>()
                 .ForMember(d => d.AuthorId,
                     opt => opt.Ignore());
